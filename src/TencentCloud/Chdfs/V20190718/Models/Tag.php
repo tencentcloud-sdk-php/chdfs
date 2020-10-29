@@ -18,20 +18,28 @@ namespace TencentCloud\Chdfs\V20190718\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMountPoint返回参数结构体
+ * 资源标签。
  *
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getKey() 获取标签键
+ * @method void setKey(string $Key) 设置标签键
+ * @method string getValue() 获取标签值
+ * @method void setValue(string $Value) 设置标签值
  */
-class CreateMountPointResponse extends AbstractModel
+class Tag extends AbstractModel
 {
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 标签键
      */
-    public $RequestId;
+    public $Key;
 
     /**
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 标签值
+     */
+    public $Value;
+
+    /**
+     * @param string $Key 标签键
+     * @param string $Value 标签值
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class CreateMountPointResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
+        if (array_key_exists("Key",$param) and $param["Key"] !== null) {
+            $this->Key = $param["Key"];
+        }
+
+        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
+            $this->Value = $param["Value"];
         }
     }
 }

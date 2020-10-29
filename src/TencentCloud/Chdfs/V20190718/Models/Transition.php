@@ -18,20 +18,28 @@ namespace TencentCloud\Chdfs\V20190718\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMountPoint返回参数结构体
+ * 生命周期规则转换属性
  *
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method integer getDays() 获取触发时间（单位天）
+ * @method void setDays(integer $Days) 设置触发时间（单位天）
+ * @method integer getType() 获取转换类型（1：归档；2：删除）
+ * @method void setType(integer $Type) 设置转换类型（1：归档；2：删除）
  */
-class CreateMountPointResponse extends AbstractModel
+class Transition extends AbstractModel
 {
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 触发时间（单位天）
      */
-    public $RequestId;
+    public $Days;
 
     /**
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var integer 转换类型（1：归档；2：删除）
+     */
+    public $Type;
+
+    /**
+     * @param integer $Days 触发时间（单位天）
+     * @param integer $Type 转换类型（1：归档；2：删除）
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class CreateMountPointResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
+        if (array_key_exists("Days",$param) and $param["Days"] !== null) {
+            $this->Days = $param["Days"];
+        }
+
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
         }
     }
 }

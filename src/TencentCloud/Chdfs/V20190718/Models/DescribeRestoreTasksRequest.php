@@ -18,20 +18,20 @@ namespace TencentCloud\Chdfs\V20190718\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMountPoint返回参数结构体
+ * DescribeRestoreTasks请求参数结构体
  *
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method string getFileSystemId() 获取文件系统ID
+ * @method void setFileSystemId(string $FileSystemId) 设置文件系统ID
  */
-class CreateMountPointResponse extends AbstractModel
+class DescribeRestoreTasksRequest extends AbstractModel
 {
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 文件系统ID
      */
-    public $RequestId;
+    public $FileSystemId;
 
     /**
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $FileSystemId 文件系统ID
      */
     function __construct()
     {
@@ -46,8 +46,8 @@ class CreateMountPointResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
+        if (array_key_exists("FileSystemId",$param) and $param["FileSystemId"] !== null) {
+            $this->FileSystemId = $param["FileSystemId"];
         }
     }
 }

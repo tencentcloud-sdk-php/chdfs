@@ -18,20 +18,20 @@ namespace TencentCloud\Chdfs\V20190718\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateMountPoint返回参数结构体
+ * ModifyLifeCycleRules请求参数结构体
  *
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method array getLifeCycleRules() 获取多个生命周期规则，上限为10
+ * @method void setLifeCycleRules(array $LifeCycleRules) 设置多个生命周期规则，上限为10
  */
-class CreateMountPointResponse extends AbstractModel
+class ModifyLifeCycleRulesRequest extends AbstractModel
 {
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var array 多个生命周期规则，上限为10
      */
-    public $RequestId;
+    public $LifeCycleRules;
 
     /**
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param array $LifeCycleRules 多个生命周期规则，上限为10
      */
     function __construct()
     {
@@ -46,8 +46,13 @@ class CreateMountPointResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
+        if (array_key_exists("LifeCycleRules",$param) and $param["LifeCycleRules"] !== null) {
+            $this->LifeCycleRules = [];
+            foreach ($param["LifeCycleRules"] as $key => $value){
+                $obj = new LifeCycleRule();
+                $obj->deserialize($value);
+                array_push($this->LifeCycleRules, $obj);
+            }
         }
     }
 }
